@@ -1,0 +1,35 @@
+
+name: Fabric Mod bauen
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Quellcode herunterladen
+        uses: actions/checkout@v4
+
+      - name: Java installieren
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Gradle installieren
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Mod kompilieren
+        run: gradle build --stacktrace
+
+      - name: Fertige Mod bereitstellen
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ServerPerformanceBar
+          path: build/libs/*.jar
+          if-no-files-found: error
