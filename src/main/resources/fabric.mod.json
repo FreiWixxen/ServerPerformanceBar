@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "serverperformancebar",
+  "version": "1.1.0",
+  "name": "Server Performance Bar",
+  "description": "Zeigt TPS, MSPT und RAM in einer per Befehl schaltbaren Bossbar.",
+  "environment": "server",
+  "entrypoints": { "main": ["de.server.performancebar.ServerPerformanceBar"] },
+  "depends": { "fabricloader": ">=0.19.5", "minecraft": "26.3", "fabric-api": "*" }
+}
