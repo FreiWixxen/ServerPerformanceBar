@@ -135,7 +135,7 @@ public class ServerPerformanceBar implements ModInitializer {
     }
 
     private static void run(MinecraftServer server, String command) {
-        CommandSourceStack source = server.createCommandSourceStack().withPermission(4).withSuppressedOutput();
+        CommandSourceStack source = server.createCommandSourceStack().withSuppressedOutput();
         server.getCommands().performPrefixedCommand(source, command);
     }
 }
